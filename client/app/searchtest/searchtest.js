@@ -10,20 +10,24 @@ angular.module('hackvtApp')
   });
 
 jQuery(document).ready(function($) {
-    var marker;
+    var markers = [];
+
 
 
     function mapAddPin(name, latitude, longitude) {
         console.log([name,latitude,longitude,map]);
-        marker = new google.maps.Marker({
+        markers.push(new google.maps.Marker({
             position: { lat: latitude, lng: longitude},
             map: window.map,
             title: name
-        });
+        }));
     }
 
-    function mapClear() {
-        window.map.setAllMap(null);
+    function mapClear(map) {
+        for (var n = 0; n < markers.length; n++) {
+            markers[n].setMap(map);
+        }
+        markers=[];
     }
 
 
@@ -32,7 +36,7 @@ jQuery(document).ready(function($) {
         jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/1",
                 null,
                 function(data, textStatus, jqXHR) {
-                    mapClear();
+                    mapClear(null);
                     console.log("Request returned.");
                     console.log("Attractions:",data);
                     $(".attractionlist").empty();
@@ -59,7 +63,7 @@ jQuery(document).ready(function($) {
                 ,
                 null,
                 function(data, textStatus, jqXHR) {
-                    mapClear();
+                    mapClear(null);
                     $(".stationlist").empty();
                     console.log("fuel stations:",data);
                     for (var i = 0; i < data['fuel_stations'].length; i++) {
@@ -72,7 +76,7 @@ jQuery(document).ready(function($) {
                         $(".stationlist").append(item);
 
                         //Pin dropping function below here
-                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                        mapAddPin(data.fuel_stations[i].station_name, data.fuel_stations[i].latitude, data.fuel_stations[i].longitude);
                     }
                 },
                 "json");
