@@ -115,3 +115,7 @@ ul.popdownMenu li:nth-child(2) {
 #aboutIcon img:hover {
 	cursor: pointer;
 }
+
+#teamNames {
+	font-size:.8em;
+}
