@@ -203,4 +203,21 @@ jQuery(document).ready(function($) {
 
         });
     });
+
+    $(document).on("click", "#allIcon", function() {
+        jQuery.get("https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key="
+                + nrelapikey
+                + "&" + "state=VT"
+                + "&" + "fuel_type=ELEC"
+                + "&" + "status=E"
+                ,
+                null,
+                function(data, textStatus, jqXHR) {
+                    mapClear(null);
+                    //mapAddPin('You are here.', latitude, longitude);
+                    //mapCenterOn(latitude,longitude);
+                    populateFuelStations(data.fuel_stations);
+                    },
+                "json");
+    });
 });
