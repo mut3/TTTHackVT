@@ -121,9 +121,6 @@ jQuery(document).ready(function($) {
     $(document).on("submit", "#destinationSearchForm", function() {
         $("#nearestButton").click();
     });
-    function testcallback() {
-        alert("AAAAAAAAAAAAAAAAAA");
-    }
     $(document).on("click", "#routeButton", function() {
         console.log("Searching for your position.");
         navigator.geolocation.getCurrentPosition(function(position) {
