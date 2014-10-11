@@ -11,21 +11,18 @@ angular.module('hackvtApp')
 
 jQuery(document).ready(function($) {
     var markers = [];
-    var fuelPinImage = 'images/yellowPin.png';
-    var personPinImage = 'images/starPin.png';
+    var fuelPinImage = '/app/assets/images/yellowPin.png';
+    var personPinImage = '/app/assets/images/starPin.png';
     var nrelapikey = "5PpIkzUQz0ihMPDb9LcNbRAqxoscqB2qWlXr3eM1";
     var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
 
 
-    function mapAddPin(name, latitude, longitude, pinType) {
-        console.log([name,latitude,longitude,map]);
-        var pinIcon;
-        if (pinType=='you') {pinIcon=personPinImage;} else if (pinType=='fuel') {pinIcon=fuelPinImage;} else {pinIcon = null;};
+    function mapAddPin(name, latitude, longitude) {
+        // console.log([name,latitude,longitude,map]);
         markers.push(new google.maps.Marker({
             position: { lat: latitude, lng: longitude},
             map: window.map,
-            title: name,
-            icon: pinIcon
+            title: name
         }));
     }
 
@@ -38,7 +35,7 @@ jQuery(document).ready(function($) {
 
     function mapCenterOn(latitude, longitude) {
         window.map.setCenter(new google.maps.LatLng(latitude, longitude));
-        window.map.setZoom(12);
+        window.map.setZoom(13);
     }
 
 
@@ -57,7 +54,7 @@ jQuery(document).ready(function($) {
                         $(".attractionlist").append(item);
 
                         //Pin dropping function below here
-                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1], false);
+                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
                     }
                 },
                 "json");
@@ -82,10 +79,11 @@ jQuery(document).ready(function($) {
             $(".stationlist").append(item);
 
             //Pin dropping function below here
-            mapAddPin(stations[i].station_name, stations[i].latitude, stations[i].longitude, 'fuel');
+            mapAddPin(stations[i].station_name, stations[i].latitude, stations[i].longitude);
         }
     }
     function getfuelstations(latitude, longitude) {
+        
         console.log("fuel stations near",[latitude, longitude]);
         jQuery.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key="
                 + nrelapikey
@@ -97,6 +95,7 @@ jQuery(document).ready(function($) {
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
+                    mapAddPin('You are here.', latitude, longitude);
                     mapCenterOn(latitude,longitude);
                     populateFuelStations(data.fuel_stations);
                     },
@@ -126,7 +125,6 @@ jQuery(document).ready(function($) {
 
     $(document).on("click", "#locationIcon", function() {
         navigator.geolocation.getCurrentPosition(function(position) {
-            mapAddPin('You are here.', position.coords.latitude, position.coords.longitude, 'you')
             getfuelstations(position.coords.latitude, position.coords.longitude);
         });
     });
