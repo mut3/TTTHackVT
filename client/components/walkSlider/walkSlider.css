@@ -1,9 +1,6 @@
-div.walkSlider{
+.walkSlider{
     background-color: rgba(0,0,0,0.56);
     height: 150px;
-    width: 640px;
-    position: absolute;
-    top: 0em;
-    margin-left: -11px;
-    margin-top: calc(1136px - 150px);
+    position: fixed;
+    bottom: 0em;
 }
