@@ -1,43 +1,25 @@
-,,,,,(miles),,,,,,,,,,,,,,,,,,,,,,,,,,,,
-City,Public?,Hours,Attraction,Coordinates,Distance,Attraction,Coordinates,Distance,Attraction,Coordinates,Distance,Attraction,Coordinates,Distance,Attraction,Coordinates,Distance,Event,Coordinates,Date-Time,Distance,Event,Coordinates,Date-Time,Distance,Event,Coordinates,Date-Time,Distance,Event,Coordinates,Date-Time,Distance
-Barree-1,Y,,Antique&CraftShops,"44.198013, -72.502722",0.3,Barre Opera House,"44.196858, -72.502025",0.3,Granite Scuptures,"44.208621, -72.500246",0.9,America's Largest Zipper,"44.199261, -72.503832",0.2,Bob's Camera&Video (walking tour map),"44.197699, -72.502114",0.4,Genealogical Clues in Family Photographs: A Second Saturdays Presentation,"44.195991, -72.498383",10/11/2014,0.6,,,,,,,,,,,,
-BARRE-1,Y-Call ahead,Dealer Business Hours,Antique Mall,"44.160612, -72.451274",2.5,Millstone Hill Touring Center,"44.159468, -72.451211",2.5,Thunder Road Racetrack,"44.179956, -72.487549",4,,,,,,,,,,,,,,,,,,,,,,
-Brattleboro,Y,,Latchis Theatre,"42.851201, -72.557818",0.1,Brattleboro Museum And Art Center,"42.850719, -72.556582",0.2,Creamery Covered Bridge,"42.849528, -72.585553",1.5,KidsPLAYce: Children's Discovery Center,"42.851916, -72.558434",0.2,Retreat Trails,"42.856029, -72.568746",0.8,Brattleboro Farmer's Market,"42.849528, -72.585553",Saturday 10-2,1.5,Brattleboro Farmer's Market,"42.854632, -72.558547",0.3,,,,,,,,,
-Burlington-1,Y,,Lake Champlain Chocolates,"44.458804, -73.213861",0.3,Arts Riot,"44.468124, -73.214793",0.6,Vintage Inspired Lifestyle Marketplace,"44.456704, -73.219632",0.8,Switchback Brewing Co,"44.456183, -73.220619",0.9,North American Breweries,"44.467847, -73.215402",0.6,,,,,,,,,,,,,,,,
-Burlington-2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Burlington-3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Burlington-4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Burlington-5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Burlington-6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Castleton,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Colchester,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hardwick,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Killington,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Manchester,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Middlebury,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Middlebury,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Middlebury,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Middlesex,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Montpelier,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Montpelier,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Montpelier,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Montpelier,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Norwich,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Poultney,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Royalton,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Shelburne,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-South Burlington,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-South Burlington,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-South Burlington,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-South Burlington,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-South Burlington,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-South Londonderry,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-South Royalton,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-St Albans,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-St Johnsbury,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-St. Johnsbury,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-St. Johnsbury,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stowe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stowe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Vergennes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Waterbury,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+City,Barre-1,BARRE-1,Brattleboro,Burlington-1
+Public?,Y,Y-Call ahead,Y,Y
+Hours,,Dealer Business Hours,,
+Attraction,Antique&CraftShops,Antique Mall,Latchis Theatre,Lake Champlain Chocolates
+Coordinates,"44.198013, -72.502722","44.160612, -72.451274","42.851201, -72.557818","44.458804, -73.213861"
+Distance,0.3,2.5,0.1,0.3
+Attraction,Barre Opera House,Millstone Hill Touring Center,Brattleboro Museum And Art Center,Arts Riot
+Coordinates,"44.196858, -72.502025","44.159468, -72.451211","42.850719, -72.556582","44.468124, -73.214793"
+Distance,0.3,2.5,0.2,0.6
+Attraction,Granite Scuptures,Thunder Road Racetrack,Creamery Covered Bridge,Vintage Inspired Lifestyle Marketplace
+Coordinates,"44.208621, -72.500246","44.179956, -72.487549","42.849528, -72.585553","44.456704, -73.219632"
+Distance,0.9,4,1.5,0.8
+Attraction,America's Largest Zipper,,KidsPLAYce: Children's Discovery Center,Switchback Brewing Co
+Coordinates,"44.199261, -72.503832",,"42.851916, -72.558434","44.456183, -73.220619"
+Distance,0.2,,0.2,0.9
+Attraction,Bob's Camera&Video (walking tour map),,Retreat Trails,North American Breweries
+Coordinates,"44.197699, -72.502114",,"42.856029, -72.568746","44.467847, -73.215402"
+Distance,0.4,,0.8,0.6
+Event,Genealogical Clues in Family Photographs: A Second Saturdays Presentation,,Brattleboro Farmer's Market,
+Coordinates,"44.195991, -72.498383",,"42.849528, -72.585553",
+Date-Time,10/11/2014,,Saturday 10-2,
+Distance,0.6,,1.5,
+Event,,,Brattleboro Farmer's Market,
+Coordinates,,,"42.854632, -72.558547",
+Date-Time,,,Wednesday 10-2,
