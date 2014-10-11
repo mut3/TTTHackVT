@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
 
     function getattractions(latitude, longitude) {
         //TODO: change the hardcoded 1 to a miles value from the ui
-        jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/0.25",
+        jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/1",
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
