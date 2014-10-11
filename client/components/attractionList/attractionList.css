@@ -4,27 +4,36 @@
 	background-color: rgba(0,0,0,0.68);
 	color: #fff;
 	list-style-type: none;
-	width: 15%;
+	min-width: 15%;
+
 	margin-top: -1em;
-	padding:1em;
+	padding: 1em 0em;
+}
+
+.stationlist:empty {
+	display:none;
 }
 
 .attractionlist {
 	background-color: rgba(69,69,69,1);
 	position: fixed;
-	left: 0em;
-	height: calc(100vh - 3.5em);
-	margin-top: 3.5em;
-	padding-top: 2em;
-	padding-left: 1.5em;
-	padding-right: 1.5em;
+	right: 0em;
+	height: 100vh;
+	margin-top: -1.5em;
+	padding: 2em 0em 0em;
 	color: #fff;
 	list-style-type: none;
 	z-index: 999;
 }
 
+.stationlist li {
+	padding: 0em 1em;
+}
+
 .attractionlist li {
 	font-size: 1.3em;
+	width: 100%;
+	padding: 0em 1em;
 }
 
 .attractionlist li.event {
@@ -33,4 +42,9 @@
 
 .attractionlist li.attraction {
 	color: #c7a73a;
+}
+
+.attractionlist li:hover, .stationlist li:hover{
+	cursor: pointer;
+	background: #92bd3f;
 }
