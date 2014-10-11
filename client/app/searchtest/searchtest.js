@@ -11,7 +11,10 @@ angular.module('hackvtApp')
 
 jQuery(document).ready(function($) {
     var markers = [];
-
+    var fuelPinImage = 'images/yellowPin.png';
+    var personPinImage = 'images/starPin.png';
+    var nrelapikey = "5PpIkzUQz0ihMPDb9LcNbRAqxoscqB2qWlXr3eM1";
+    var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
 
 
     function mapAddPin(name, latitude, longitude) {
@@ -91,8 +94,7 @@ jQuery(document).ready(function($) {
 
 
     }
-    var nrelapikey = "5PpIkzUQz0ihMPDb9LcNbRAqxoscqB2qWlXr3eM1";
-    var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
+    
     $(document).on("click", "#nearestButton", function() {
         //getfuelstations(parseFloat($("#latitude").val()), parseFloat($("#longitude").val()));
         jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?sensor=true&key="+googleApiKey+"&address=" + $("#destinationSearch").val(), null,
