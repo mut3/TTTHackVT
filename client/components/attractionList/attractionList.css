@@ -4,8 +4,9 @@
 	background-color: rgba(0,0,0,0.68);
 	color: #fff;
 	list-style-type: none;
-	width: 100%;
-	margin-tope: -1em;
+	width: 15%;
+	margin-top: -1em;
+	padding:.3em;
 }
 
 .attractionList {
