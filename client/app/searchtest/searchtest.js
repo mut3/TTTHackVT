@@ -17,12 +17,15 @@ jQuery(document).ready(function($) {
     var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
 
 
-    function mapAddPin(name, latitude, longitude) {
+    function mapAddPin(name, latitude, longitude, pinType) {
         console.log([name,latitude,longitude,map]);
+        var pinIcon;
+        if (pinType=='you') {pinIcon=personPinImage;} else if (pinType=='fuel') {pinIcon=fuelPinImage;} else {pinIcon = null;};
         markers.push(new google.maps.Marker({
             position: { lat: latitude, lng: longitude},
             map: window.map,
-            title: name
+            title: name,
+            icon: pinIcon
         }));
     }
 
@@ -35,7 +38,7 @@ jQuery(document).ready(function($) {
 
     function mapCenterOn(latitude, longitude) {
         window.map.setCenter(new google.maps.LatLng(latitude, longitude));
-        window.map.setZoom(11);
+        window.map.setZoom(12);
     }
 
 
@@ -54,7 +57,7 @@ jQuery(document).ready(function($) {
                         $(".attractionlist").append(item);
 
                         //Pin dropping function below here
-                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1], false);
                     }
                 },
                 "json");
@@ -79,7 +82,7 @@ jQuery(document).ready(function($) {
             $(".stationlist").append(item);
 
             //Pin dropping function below here
-            mapAddPin(stations[i].station_name, stations[i].latitude, stations[i].longitude);
+            mapAddPin(stations[i].station_name, stations[i].latitude, stations[i].longitude, 'fuel');
         }
     }
     function getfuelstations(latitude, longitude) {
@@ -123,6 +126,7 @@ jQuery(document).ready(function($) {
 
     $(document).on("click", "#locationIcon", function() {
         navigator.geolocation.getCurrentPosition(function(position) {
+            mapAddPin('You are here.', position.coords.latitude, position.coords.longitude, 'you')
             getfuelstations(position.coords.latitude, position.coords.longitude);
         });
     });
