@@ -1,0 +1,8 @@
+#map-canvas { 
+    height: calc(93vh - 1px);
+    width: calc(100vw);
+    margin-left: calc(-1em - 1px);
+    margin-top: calc(-1.5em);
+    position: absolute;
+    top: 0;
+}

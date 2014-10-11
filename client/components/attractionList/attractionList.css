@@ -1,3 +1,13 @@
+.stationlist {
+	position: absolute;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.68);
+	color: #fff;
+	list-style-type: none;
+	width: 100%;
+	margin-tope: -1em;
+}
+
 .attractionList {
 	background-color: rgba(69,69,69,1);
 	position: fixed;
@@ -9,12 +19,7 @@
 	padding-right: 1.5em;
 	color: #fff;
 	list-style-type: none;
-}
-
-.attractionlist::before {
-	content: "Attractions Nearby";
-	font-size: 2em;
-	text-decoration: underline;
+	z-index: 999;
 }
 
 .attractionlist li {
