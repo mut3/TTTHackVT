@@ -41,5 +41,5 @@
 
 .attractionlist li:hover, .stationlist li:hover{
 	cursor: pointer;
-	background: rgba(0,0,0,0.86);
+	background: #92bd3f;
 }
