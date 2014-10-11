@@ -1,4 +1,42 @@
 <form>
+	<script type="text/javascript>
+		function calculateSomeStuff() 
+		{
+			var percentLeft = document.getElementById("percentleft").value;
+			var milesPerCharge = document.getElementById("mp_charge").value;	
+		}
+
+		if (percentLeft <= 0 || milesPerCharge <= 0) 	
+		{
+			alert("Please enter a value higher than 0!");
+		} 
+		else 
+		{
+			var milesLeft = milesPerCharge / percentLeft;
+			var costOfPreviousTrip = ((100-percentLeft)*15*3.44);
+		}
+        if (milesLeft === undefined || costOfPreviousTrip === undefined) 
+		{
+            milesLeft = 0;
+            costOfPreviousTrip = 0;
+		}
+		^!-- parse and format the output ^!--<
+		var pmpc = parseFloat(milesPerCharge).toFixed(2);
+		document.getElementById("your_miles").innerText = pmpc;
+		
+		var pcopt = parseFloat(costOfPreviousTrip).toFixed(2);
+		var output = "$" + pcopt;
+		document.getElementById("cost_of_ptrip").innerText = output;
+	 }
+
+
+	
+	function init() 
+	{
+		document.getElementById("calculate").onclick = calculateMpg;
+	}
+	 window.onload = init;
+	</script>
 	<fieldset>
 		<legend>Car Range</legend>
 		<label for "txtPercentLeft">Remaining battery percentage:</label>
@@ -14,14 +52,14 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>Button</legend> <!-- Edit this to what you want -->
-		<input type="submit" name="btnCalc" value="Calculate your current range" tabindex="300" class="button">
+		<legend>How much did you save since your last charge?</legend> 
+		<input type="submit" name="btnCalc" value="Calculate" tabindex="300" class="button">
 	</fieldset>
 </form>
 
 <br>
 
-<div id="outputBox"></div> <!-- OUTPUT DIV -->
+<div><p>output me</p> </div> <!-- OUTPUT DIV -->
 
 
 
