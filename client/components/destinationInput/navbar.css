@@ -104,6 +104,22 @@ ul.popdownMenu li:nth-child(2) {
 	list-style-type: none;
 }
 
+#allIcon {
+	float: right;
+	padding: calc(1em - 3px);
+}
+
+#allIcon img {
+	height: 30px;
+	width: 30px;
+	border: 1px solid #92bd3f;
+	border-radius: 50px;
+}
+
+#allIcon img:hover {
+	cursor: pointer;
+}
+
 #aboutIcon {
 	float: right;
 	padding: calc(1em - 3px);
