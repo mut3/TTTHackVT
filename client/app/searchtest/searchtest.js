@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
     var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
     $(document).on("click", "#nearestButton", function() {
         //getfuelstations(parseFloat($("#latitude").val()), parseFloat($("#longitude").val()));
-        jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?key="+googleApiKey+"&address=" + $("#destinationSearch").val(), null,
+        jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?sensor=true&key="+googleApiKey+"&address=" + $("#destinationSearch").val(), null,
                 function(data, textStatus, jsXHR) {
                     console.log("Address data:",data);
                     if (data.results.length == 0) {
@@ -121,16 +121,58 @@ jQuery(document).ready(function($) {
     $(document).on("submit", "#destinationSearchForm", function() {
         $("#nearestButton").click();
     });
+    function testcallback() {
+        alert("AAAAAAAAAAAAAAAAAA");
+    }
     $(document).on("click", "#routeButton", function() {
+        console.log("Searching for your position.");
         navigator.geolocation.getCurrentPosition(function(position) {
-            jQuery.get("https://maps.googleapis.com/maps/api/directions/json?key="+googleApiKey
-                    +"&origin=" + position.coords.latitude + "," + position.coords.longitude
-                    +"&destination=" + $("#destinationSearch").val()
-                    ,
-                    null,
-                    function(data, textStatus, jsXHR) {
-                        alert("hue");
-                    });
+            console.log("Found position");
+            var directionsService = new google.maps.DirectionsService();
+
+            var directionsRequest = {
+                origin: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+                destination: $("#destinationSearch").val(),
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.IMPERIAL
+            };
+            console.log(directionsRequest);
+            console.log("Searching for a route.");
+            directionsService.route(directionsRequest, function(result, status) {
+                //console.log(status);
+                //console.log(result);
+                var overview_path = result.routes[0].overview_path;
+                var linestring = "LINESTRING(";
+                for(var i = 0; i < overview_path.length; i++) {
+                    //console.log(overview_path[i].lat(), overview_path[i].lng());
+                    if (i == overview_path.length - 1 || i % 2 == 0) {
+                        //linestring += overview_path[i].lat() + " " + overview_path[i].lng();
+                        linestring += overview_path[i].lng() + " " + overview_path[i].lat();
+                        if (i != overview_path.length - 1) {
+                            linestring += ", ";
+                        }
+                    }
+
+                    //console.log(i);
+                }
+                linestring += ")";
+
+                var url = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearby-route.json?api_key=" + nrelapikey
+                        +"&route=" + linestring
+                        + "&" + "fuel_type=ELEC"
+                        + "&" + "status=E";
+                console.log(url);
+                jQuery.get(url,
+                        null,
+                        function(data, textStatus, jqXHR) {
+                            console.log(data);
+                        },
+                        "json"
+                        );
+
+                console.log(linestring);
+            });
+
         });
     });
 });
