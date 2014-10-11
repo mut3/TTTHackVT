@@ -4,4 +4,6 @@
     width: calc(99vw - 2px);
     margin-left: calc(-1em - 1px);
     margin-top: calc(-2em - 2px);
+    position: absolute;
+    top: 0;
 }

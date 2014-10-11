@@ -11,12 +11,6 @@
 	list-style-type: none;
 }
 
-.attractionlist::before {
-	content: "Attractions Nearby";
-	font-size: 2em;
-	text-decoration: underline;
-}
-
 .attractionlist li {
 	font-size: 1.3em;
 }
