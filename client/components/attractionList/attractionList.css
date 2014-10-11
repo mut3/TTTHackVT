@@ -1,6 +1,9 @@
-.stationList {
-	background-color: rgba(0,0,0,0.56);
+.attractionList {
+	background-color: rgba(69,69,69,1);
 	position: fixed;
 	left: 0em;
-	width: 15em;
+	width: 20em;
+	height: calc(100vh - 3.5em - 100px);
+	margin-top: 3.5em;
+	z-index: 9999;
 }
