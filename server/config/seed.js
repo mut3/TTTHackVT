@@ -153,7 +153,7 @@ Attraction.find({}).remove(function() {
 		},
 		{
 			name: "Lake Champlain Chocolates",
-			location: [44.458804, -73.213861}
+			location: [44.458804, -73.213861]
 		},
 		{
 			name: "Lakeside Massage Studio",
