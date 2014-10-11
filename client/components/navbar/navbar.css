@@ -29,10 +29,11 @@
 }
 
 .popdownMenu {
-	background-color: #ba7e1c;
+	background-color: #ee674f;
 	width: 15em;
 	font-size: 1.2em;
 	border: 1px solid #000;
+	border-radius: 0px 0px 5px 5px;
 }
 
 ul.popdownMenu li {
@@ -41,8 +42,17 @@ ul.popdownMenu li {
 
 ul.popdownMenu li:nth-child(1) {
 	float: left;
+	width: 50%;
+	text-align: center;
+	border-right: 1px solid #000;
 }
 
 ul.popdownMenu li:nth-child(2) {
 	float: right;
+	width: 50%;
+	text-align: center;
+}
+
+.backgroundClear {
+	clear:both;
 }
