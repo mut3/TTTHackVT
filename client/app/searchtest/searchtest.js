@@ -1,4 +1,4 @@
-+'use strict';
+'use strict';
 
 angular.module('hackvtApp')
   .config(function ($routeProvider) {
@@ -10,6 +10,18 @@ angular.module('hackvtApp')
   });
 
 jQuery(document).ready(function($) {
+    var marker;
+
+    function mapAddPin(name, latitude, longitude) {
+        console.log([name,latitude,longitude,map]);
+        marker = new google.maps.Marker({
+            position: { lat: latitude, lng: longitude},
+            map: window.map,
+            title: name
+        });
+    }
+
+
     function getattractions(latitude, longitude) {
         //TODO: change the hardcoded 1 to a miles value from the ui
         jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/1",
@@ -22,11 +34,16 @@ jQuery(document).ready(function($) {
                         console.log("Looping.");
                         var item = $('<li>' + data[i].name + '</li>');
                         $(".attractionlist").append(item);
+
+                        //Pin dropping function below here
+                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
                     }
                 },
                 "json");
     }
+    
     function getfuelstations(latitude, longitude) {
+
         console.log([latitude, longitude]);
         jQuery.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key="
                 + nrelapikey
@@ -43,7 +60,11 @@ jQuery(document).ready(function($) {
                         item.click(function() {
                             getattractions(data.latitude, data.longitude);
                         });
+
                         $(".stationlist").append(item);
+
+                        //Pin dropping function below here
+
                     }
                 },
                 "json");
