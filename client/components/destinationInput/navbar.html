@@ -8,7 +8,17 @@
       	<div class="backgroundClear"></div>
       </ul>
       
-      <script src="inputNavEffect.js"></script>
+      <script>
+	      $( "#destinationSearchContainer").focusin(function() {
+			  $( ".popdownMenu").css('display','block');
+		  });
+
+		  $( "#destinationSearchContainer").focusout(function() {
+			  if ($("#destinationSearch").val() == "") {
+				  $( ".popdownMenu").css('display','none');
+			  }
+		  });
+      </script>
 
     </div>
   </div>
