@@ -47,6 +47,10 @@ ul.popdownMenu li {
 	display: inline-block;
 }
 
+ul.popdownMenu li:hover {
+	cursor: pointer;
+}
+
 ul.popdownMenu li:nth-child(1) {
 	float: left;
 	width: 50%;
