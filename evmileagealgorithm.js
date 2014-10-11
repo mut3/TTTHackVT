@@ -8,7 +8,6 @@ function calculateSomeStuff()
 	if (percentLeft <= 0 || milesPerCharge <= 0) 
 	{
 		alert("Please enter a value higher than 0!");
-		formReset();
     } 
 	else 
 	{
@@ -29,12 +28,7 @@ function calculateSomeStuff()
 	document.getElementById("cost_of_ptrip").innerText = output;
  }
 
-function formReset()
- {
-	document.getElementById("your_miles").innerText = 0;
-    document.getElementById("cost_of_ptrip").innerText = 0;
-    document.getElementById("mileage_form").reset();
-}
+
   // initialize
 function init() 
 {

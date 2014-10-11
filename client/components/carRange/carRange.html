@@ -1,10 +1,9 @@
 <form>
-	<script type="text/javascript>
-		function calculateSomeStuff() 
+	<script type="text/javascript">
+	function calculateSomeStuff() 
 		{
-			var percentLeft = document.getElementById("percentleft").value;
-			var milesPerCharge = document.getElementById("mp_charge").value;	
-		}
+			var percentLeft = document.getElementById("percent_left").value;
+			var milesPerCharge = document.getElementById("mp_charge").value;			
 
 		if (percentLeft <= 0 || milesPerCharge <= 0) 	
 		{
@@ -20,46 +19,49 @@
             milesLeft = 0;
             costOfPreviousTrip = 0;
 		}
-		^!-- parse and format the output ^!--<
+		
 		var pmpc = parseFloat(milesPerCharge).toFixed(2);
 		document.getElementById("your_miles").innerText = pmpc;
 		
 		var pcopt = parseFloat(costOfPreviousTrip).toFixed(2);
 		var output = "$" + pcopt;
 		document.getElementById("cost_of_ptrip").innerText = output;
-	 }
-
-
+		
+		alert("You can drive " + percentLeft + " more miles.\nYou saved $" + costOfPreviousTrip + " on your previous charge by going electric!");
+	}
+	
+	
 	
 	function init() 
 	{
-		document.getElementById("calculate").onclick = calculateMpg;
+		document.getElementById("cost_of_ptrip").onclick = calculateSomeStuff;
 	}
+	
+	
 	 window.onload = init;
 	</script>
-	<fieldset>
+	
+	<form id="mileage_form">
 		<legend>Car Range</legend>
-		<label for "txtPercentLeft">Remaining battery percentage:</label>
+		<label for "percent_left">Remaining battery percentage:</label>
 		<input type="text" name="txtPercentLeft" value="" tabindex="100" maxlength="30" placeholder="Enter battery %" onfocus="this.select()" autofocus>
 
 		<br>
 
-		<label for "txtMPC">Miles per charge:</label>
-		<input type="text" name="txtMPC" value="" tabindex="110" maxlength="40" placeholder="Enter your car model's mpc" onfocus="this.select()" autofocus>
+		<label for "mp_charge">Miles per charge:</label>
+		<input type="text" name="mp_charge" value="" tabindex="110" maxlength="40" placeholder="Enter your car model's MPC" onfocus="this.select()" autofocus>
 
 		<br>
 
 	</fieldset>
 
 	<fieldset>
-		<legend>How much did you save since your last charge?</legend> 
+		<legend>How many more miles can you drive? How much did you save since your last charge?</legend> 
 		<input type="submit" name="btnCalc" value="Calculate" tabindex="300" class="button">
 	</fieldset>
 </form>
 
 <br>
-
-<div><p>output me</p> </div> <!-- OUTPUT DIV -->
 
 
 
