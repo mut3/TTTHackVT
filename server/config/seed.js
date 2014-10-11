@@ -82,6 +82,131 @@ Attraction.find({}).remove(function() {
         {
             name: "Arts Riot",
             location: [44.468124, -73.214793]
-        }
+        },
+		{
+            name: "America's Largest Zipper",
+            location: [44.199261, -72.503832]
+        },
+		{
+			name: "Anna Margolis's House",
+			location: [44.482639, -73.216847]
+		},
+		{
+			name: "Annual Turkey Supper",
+			location: [44.735239, -73.113638]
+		},
+		{
+			name: "Bob's Camera&Video (walking tour map)",
+			location: [42.856029, -72.568746]
+		}
+		{
+			name: "Brattleboro Farmer's Market",
+			location: [42.849528, -72.585553]
+		},
+		{
+			name: "Burlington Parks and Recreation",
+			location: [44.461722, -73.215329]
+		},
+		{
+			name: "Church Street",
+			location: [44.476003, -73.212504]
+		},
+		{
+			name: "City Market",
+			location: [44.478103, -73.210559]
+		},
+		{
+			name: "Creamery Covered Bridge",
+			location: [42.849528, -72.585553]
+		},
+		{
+			name: "Fletcher Free Library",
+			location: [44.476816, -73.210289],
+		},
+		{
+			name: "Flynn Center for the Performing Arts",
+			location: [44.475686, -73.213148],
+		},
+		{
+			name: "Genealogical Clues in Family Photographs",
+			location: [44.195991, -72.498383]
+		},
+		{
+			name: "Granite Scuptures",
+			location: [44.208621, -72.500246]
+		},
+		{
+			name: "HackVT",
+			location: [44.4763899, -73.2084],
+		},
+		{
+			name: "Historic Preservation Tour",
+			location: [42.862999, -72.567632]
+		},
+		{
+			name: "Island Line Trail",
+			location: [44.463786, -73.218415]
+		},
+		{
+			name: "KidsPLAYce: Children's Discovery Center",
+			location: [42.851916, -72.558434]
+		},
+		{
+			name: "Lake Champlain Chocolates",
+			location: [44.458804, -73.213861}
+		},
+		{
+			name: "Lakeside Massage Studio",
+			location: [44.462055, -73.217840]
+		},
+		{
+			name: "Merril's Roxy",
+			location: [44.477257, -73.210794]
+		},
+		{
+			name: "Nectar's",
+			location: [44.476111, -73.211759]
+		},
+		{
+			name: "North American Breweries",
+			location: [44.467847, -73.215402]
+		},
+		{
+			name: "Orange Leaf Frozen Yogurt",
+			location: [44.477209, -73.212057]
+		},
+		{
+			name: "Out of the Darkness Walk to Prevent Suicide",
+			location: [44.481062, -73.219953]
+		},
+		{
+			name: "Radio Bean Coffeehouse",
+			location: [44.480842, -73.211038]
+		},
+		{
+			name: "Retreat Farm",
+			location: [42.862999, -72.567632]
+		},
+		{
+			name: "Switchback Brewing Co",
+			location: [44.456183, -73.220619]
+		},
+		{
+			name: "Thunder Road Racetrack",
+			location: [44.179956, -72.487549],
+		},
+		{
+			name: "Vintage Inspired Lifestyle Marketplace",
+			location: [44.456704, -73.219632]
+		},
+		{
+			name: "Wolf Kahn",
+			location: [42.850715, -72.556579]
+		},
+		{
+			name: "Yankee Tattoo",
+			location: [44.480585, -73.210872]
+		}
+
     );
 });
