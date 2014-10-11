@@ -39,7 +39,7 @@
 }
 
 #destinationSearchContainer {
-	max-width: 47.5%;
+	width: auto;
 	float: left;
 }
 
@@ -69,8 +69,8 @@ ul.popdownMenu li:nth-child(2) {
 }
 
 #locationIcon {
-	float: right;
-	padding: 1em;
+	float: left;
+	padding: calc(1em - 3px);
 }
 
 #locationIcon img {
@@ -83,14 +83,4 @@ ul.popdownMenu li:nth-child(2) {
 
 #locationIcon img {
 	cursor: pointer;
-}
-
-#logoIcon {
-	width: 5%;
-}
-
-#logoIcon img {
-	height: 3.5em;
-	position: absolute;
-	margin-top: 1em;
 }
