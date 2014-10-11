@@ -98,7 +98,7 @@ Attraction.find({}).remove(function() {
 		{
 			name: "Bob's Camera&Video (walking tour map)",
 			location: [42.856029, -72.568746]
-		}
+		},
 		{
 			name: "Brattleboro Farmer's Market",
 			location: [42.849528, -72.585553]
