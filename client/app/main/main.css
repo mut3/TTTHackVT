@@ -18,22 +18,25 @@ body {
     margin:auto;
     
 }
-
+/*
 div .mobileSize{
     background-color: #92bd3f;
-    border-style:dotted; /* mark size of iPhone */
+    border-style:dotted;
     margin:auto;
     width:640px;
     height:1136px;
 }
+*/
 
 div .bigMapBox{
     border-style:solid;
     display:block;
     margin:auto;
+    /*
     height:1136px;
     width:100%;
-    
+    */
+
     /*height: calc(1136px - 150px);*/
 }
 
