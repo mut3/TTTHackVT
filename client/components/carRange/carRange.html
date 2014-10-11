@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
 <form>
 	<script type="text/javascript">
 	function calculateSomeStuff() 
@@ -56,12 +62,28 @@
 	</fieldset>
 
 	<fieldset>
+<<<<<<< HEAD
 		<legend>How many more miles can you drive? How much did you save since your last charge?</legend> 
 		<input type="submit" name="btnCalc" value="Calculate" tabindex="300" class="button">
+=======
+		<legend>Button</legend> <!-- Edit this to what you want -->
+		<button id="submitButton">Press me</button>
+>>>>>>> origin/master
 	</fieldset>
 </form>
 
 <br>
 
+<<<<<<< HEAD
 
+=======
+<div id="outputBox" style="height:300px;width:300px; border:1px solid #000;"></div> <!-- OUTPUT DIV -->
+>>>>>>> origin/master
 
+<script>
+$("#submitButton").click(function() {
+	$("#outputBox").html("Hello, World");
+});
+</script>
+</body>
+</html>

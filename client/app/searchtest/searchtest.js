@@ -11,11 +11,14 @@ angular.module('hackvtApp')
 
 jQuery(document).ready(function($) {
     var markers = [];
-
+    var fuelPinImage = '/app/assets/images/yellowPin.png';
+    var personPinImage = '/app/assets/images/starPin.png';
+    var nrelapikey = "5PpIkzUQz0ihMPDb9LcNbRAqxoscqB2qWlXr3eM1";
+    var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
 
 
     function mapAddPin(name, latitude, longitude) {
-        console.log([name,latitude,longitude,map]);
+        //console.log([name,latitude,longitude,map]);
         var mark = new google.maps.Marker({
             position: { lat: latitude, lng: longitude},
             map: window.map,
@@ -37,26 +40,43 @@ jQuery(document).ready(function($) {
 
     function mapCenterOn(latitude, longitude) {
         window.map.setCenter(new google.maps.LatLng(latitude, longitude));
-        window.map.setZoom(11);
+        window.map.setZoom(13);
     }
 
 
-    function getattractions(latitude, longitude) {
+    function getattractions(latitude, longitude, only) {
         //TODO: change the hardcoded 1 to a miles value from the ui
         jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/1",
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
-                    mapCenterOn(latitude,longitude);
+                    if (only == undefined) {
+                        mapCenterOn(latitude,longitude);
+                        $(".attractionlist").empty();
+                    }
                     console.log("Request returned.");
                     console.log("Attractions:",data);
-                    $(".attractionlist").empty();
                     for(var i = 0; i < data.length; i++) {
-                        var item = $('<li>' + data[i].name + '</li>');
-                        $(".attractionlist").append(item);
+                        if (only == undefined) {
+                            var item = $('<li>' + data[i].name + '</li>');
+                            console.log(data[i]);
+                            item.data("object", data[i]);
+                            item.click(function() {
+                                var object = $(this).data("object");
+                                getattractions(object.location[0], object.location[1], object.name);
+                            });
+                            $(".attractionlist").append(item);
+                        }
 
                         //Pin dropping function below here
-                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                        if (only != undefined) {
+                           if (data[i].name == only) {
+                            mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                           }
+                        }
+                        else {
+                            mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                        }
                     }
                 },
                 "json");
@@ -85,6 +105,7 @@ jQuery(document).ready(function($) {
         }
     }
     function getfuelstations(latitude, longitude) {
+        
         console.log("fuel stations near",[latitude, longitude]);
         jQuery.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key="
                 + nrelapikey
@@ -96,6 +117,7 @@ jQuery(document).ready(function($) {
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
+                    mapAddPin('You are here.', latitude, longitude);
                     mapCenterOn(latitude,longitude);
                     populateFuelStations(data.fuel_stations);
                     },
@@ -103,8 +125,7 @@ jQuery(document).ready(function($) {
 
 
     }
-    var nrelapikey = "5PpIkzUQz0ihMPDb9LcNbRAqxoscqB2qWlXr3eM1";
-    var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
+    
     $(document).on("click", "#nearestButton", function() {
         //getfuelstations(parseFloat($("#latitude").val()), parseFloat($("#longitude").val()));
         jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?sensor=true&key="+googleApiKey+"&address=" + $("#destinationSearch").val(), null,
