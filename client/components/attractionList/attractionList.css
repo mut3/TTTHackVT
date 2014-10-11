@@ -12,12 +12,10 @@
 .attractionlist {
 	background-color: rgba(69,69,69,1);
 	position: fixed;
-	left: 0em;
-	height: calc(100vh - 3.5em);
-	margin-top: 3.5em;
-	padding-top: 2em;
-	padding-left: 1.5em;
-	padding-right: 1.5em;
+	right: 0em;
+	height: 100vh;
+	margin-top: -1.5em;
+	padding: 2em 1em 0em;
 	color: #fff;
 	list-style-type: none;
 	z-index: 999;
