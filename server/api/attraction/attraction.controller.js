@@ -55,7 +55,6 @@ exports.destroy = function(req, res) {
 };
 
 exports.near = function(req, res) {
-    var miles = 1;
     Attraction.find({
         'location':
         {
@@ -63,7 +62,7 @@ exports.near = function(req, res) {
             //$maxDistance: 1
             $geoWithin: {
                 // 3959 = radius of earth in miles
-                $centerSphere: [ [ req.params.latitude, req.params.longitude ], miles / 3959 ]
+                $centerSphere: [ [ req.params.latitude, req.params.longitude ], req.params.miles / 3959 ]
             }
         }},
         function(err, attractions) {

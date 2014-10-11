@@ -1,4 +1,4 @@
-'use strict';
++'use strict';
 
 angular.module('hackvtApp')
   .config(function ($routeProvider) {
@@ -11,7 +11,8 @@ angular.module('hackvtApp')
 
 jQuery(document).ready(function($) {
     function getattractions(latitude, longitude) {
-        jQuery.get("/api/attractions/near/" + latitude + "/" + longitude,
+        //TODO: change the hardcoded 1 to a miles value from the ui
+        jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/1",
                 null,
                 function(data, textStatus, jqXHR) {
                     console.log("Request returned.");
@@ -50,10 +51,12 @@ jQuery(document).ready(function($) {
 
     }
     var nrelapikey = "5PpIkzUQz0ihMPDb9LcNbRAqxoscqB2qWlXr3eM1";
+    var googleApiKey = "AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4";
     $(document).on("click", "#nearestButton", function() {
         //getfuelstations(parseFloat($("#latitude").val()), parseFloat($("#longitude").val()));
-        jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + $("#destinationSearch").val(), null,
+        jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?key="+googleApiKey+"&address=" + $("#destinationSearch").val(), null,
                 function(data, textStatus, jsXHR) {
+                    console.log(data);
                     if (data.results.length == 0) {
                         alert("No results found!");
                         return;
