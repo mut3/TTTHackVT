@@ -28,10 +28,9 @@ jQuery(document).ready(function($) {
                 null,
                 function(data, textStatus, jqXHR) {
                     console.log("Request returned.");
-                    console.log(data);
+                    console.log("Attractions:",data);
                     $(".attractionlist").empty();
                     for(var i = 0; i < data.length; i++) {
-                        console.log("Looping.");
                         var item = $('<li>' + data[i].name + '</li>');
                         $(".attractionlist").append(item);
 
@@ -43,17 +42,19 @@ jQuery(document).ready(function($) {
     }
     
     function getfuelstations(latitude, longitude) {
-
-        console.log([latitude, longitude]);
+        console.log("fuel stations near",[latitude, longitude]);
         jQuery.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key="
                 + nrelapikey
                 + "&" + "latitude=" + latitude
                 + "&" + "longitude=" + longitude
+                + "&" + "fuel_type=ELEC"
+                + "&" + "status=E"
 
                 ,
                 null,
                 function(data, textStatus, jqXHR) {
                     $(".stationlist").empty();
+                    console.log("fuel stations:",data);
                     for (var i = 0; i < data['fuel_stations'].length; i++) {
                         var item = $("<li>" + data.fuel_stations[i].station_name + "</li>");
                         item.data("object", data.fuel_stations[i]);
@@ -77,7 +78,7 @@ jQuery(document).ready(function($) {
         //getfuelstations(parseFloat($("#latitude").val()), parseFloat($("#longitude").val()));
         jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?key="+googleApiKey+"&address=" + $("#destinationSearch").val(), null,
                 function(data, textStatus, jsXHR) {
-                    console.log(data);
+                    console.log("Address data:",data);
                     if (data.results.length == 0) {
                         alert("No results found!");
                         return;
@@ -88,7 +89,6 @@ jQuery(document).ready(function($) {
                     }
                     // We found exactly one result
                     getfuelstations(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
-                    //console.log(data);
                 });
 
     });

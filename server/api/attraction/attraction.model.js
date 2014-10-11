@@ -6,7 +6,8 @@ var mongoose = require('mongoose'),
 var AttractionSchema = new Schema({
   name: String,
   description: String,
-  location: {type: [], index: '2d'}
+  location: {type: [], index: '2d'},
+  type: Number
 });
 
 module.exports = mongoose.model('Attraction', AttractionSchema);
