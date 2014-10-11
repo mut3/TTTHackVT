@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
 
     function getattractions(latitude, longitude) {
         //TODO: change the hardcoded 1 to a miles value from the ui
-        jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/1",
+        jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/0.25",
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
@@ -70,7 +70,8 @@ jQuery(document).ready(function($) {
                         var item = $("<li>" + data.fuel_stations[i].station_name + "</li>");
                         item.data("object", data.fuel_stations[i]);
                         item.click(function() {
-                            getattractions(data.latitude, data.longitude);
+                            var object = $(this).data("object");
+                            getattractions(object.latitude, object.longitude);
                         });
 
                         $(".stationlist").append(item);
