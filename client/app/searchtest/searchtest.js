@@ -121,4 +121,16 @@ jQuery(document).ready(function($) {
     $(document).on("submit", "#destinationSearchForm", function() {
         $("#nearestButton").click();
     });
+    $(document).on("click", "#routeButton", function() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            jQuery.get("https://maps.googleapis.com/maps/api/directions/json?key="+googleApiKey
+                    +"&origin=" + position.coords.latitude + "," + position.coords.longitude
+                    +"&destination=" + $("#destinationSearch").val()
+                    ,
+                    null,
+                    function(data, textStatus, jsXHR) {
+                        alert("hue");
+                    });
+        });
+    });
 });
