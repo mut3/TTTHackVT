@@ -12,21 +12,35 @@
 		  
 		</form>
 		  
-		  <script>
-		      $( "#destinationSearchContainer").focusin(function() {
-				  $(".popdownMenu").slideDown("fast");
-			  });
+			<script>
+			$( "#destinationSearchContainer").focusin(function() {
+			  $(".popdownMenu").slideDown("fast");
+			});
+			
+			$( "#destinationSearchContainer").focusout(function() {
+			  if ($("#destinationSearch").val() == "") {
+				  $(".popdownMenu").slideUp("fast");
+			  }
+			});
+			</script>
+	
+			</div>
+			
+			<div id="locationIcon">
+				<img src="../../assets/images/geo_fence-512.png" alt="Current Location">
+			</div>
+			
+			<div id="aboutIcon">
+				<img src="../../assets/images/help-512.png" alt="About">
+			</div>
+	
+		<script>
+		$( "#locationIcon img").click(function() {
+		  	$("#about").slideDown("fast");
+		});
 		
-			  $( "#destinationSearchContainer").focusout(function() {
-				  if ($("#destinationSearch").val() == "") {
-					  $(".popdownMenu").slideUp("fast");
-				  }
-			  });
-		  </script>
-	
-	</div>
-	
-	<div id="locationIcon">
-		<img src="../../assets/images/geo_fence-512.png" alt="Current Location">
-	</div>
+		$( "#locationIcon").focusout(function() {
+		  	$(".popdownMenu").slideUp("fast");
+		});
+		</script>
 </div>

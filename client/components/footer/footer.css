@@ -1,7 +1,11 @@
 /*footer css*/
 
 footer {
-	background-color:#92bd3f;
-	display:block;
-	text-align:center;
+	background-color: #92bd3f;
+	display: none;
+	text-align: center;
+	height: 4em;
+	position: static;
+	bottom: 0em;
+	width: 100%;
 }

@@ -84,3 +84,17 @@ ul.popdownMenu li:nth-child(2) {
 #locationIcon img {
 	cursor: pointer;
 }
+
+#aboutIcon {
+	float: right;
+	padding: calc(1em - 3px);
+}
+
+#aboutIcon img {
+	height: 30px;
+	width: 30px;
+}
+
+#aboutIcon img:hover {
+	cursor: pointer;
+}

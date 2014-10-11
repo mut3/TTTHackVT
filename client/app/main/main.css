@@ -19,7 +19,7 @@ body {
 
 div .bigMapBox{
     border-style:solid;
-    display:block;
+    display:none;
     margin:auto;
     width:40%;
     min-height:800px;
