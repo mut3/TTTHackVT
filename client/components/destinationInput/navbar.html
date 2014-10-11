@@ -33,14 +33,17 @@
 			<div id="aboutIcon">
 				<img src="../../assets/images/help-512.png" alt="About">
 			</div>
-	
-		<script>
-		$( "#locationIcon img").click(function() {
-		  	$("#about").slideDown("fast");
-		});
-		
-		$( "#locationIcon").focusout(function() {
-		  	$(".popdownMenu").slideUp("fast");
-		});
-		</script>
+			
+			<div id="about">
+				<p>Created for HackVT 2014 by Team Tech Team</p>
+				<a href="https://www.facebook.com/uvmtechteam" target="_blank"><img src="../../assets/images/facebook-512.png" width="20px" height="20px" alt="Facebook"></a>
+				<a href="https://twitter.com/uvmtechteam" target="blank"><img src="../../assets/images/twitter-512.png" width="20px" height="20px" alt="Twitter"></a>
+				<a href="http://www.uvm.edu/techteam/" target="_blank"><img src="../../assets/images/vermont.png" width="20px" height="20px"></a>
+			</div>
+			
+			<script>
+			$("#aboutIcon").click(function() {
+			  	$("#about").slideToggle("fast");
+			});
+			</script>
 </div>
