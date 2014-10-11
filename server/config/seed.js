@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Attraction = require('../api/attraction/attraction.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -46,4 +47,41 @@ User.find({}).remove(function() {
       console.log('finished populating users');
     }
   );
+});
+
+Attraction.find({}).remove(function() {
+    Attraction.create(
+        {
+            name: "Antique&CraftShops",
+            location: [44.198013, -72.502722]
+        },
+        {
+            name: "Antique Mall",
+            location: [44.160612, -72.451274]
+        },
+        {
+            name: "Latchis Theatre",
+            location: [42.851201, -72.557818]
+        },
+        {
+            name: "Lake Champlain Chocolates",
+            location: [44.458804, -73.213861]
+        },
+        {
+            name: "Barre Opera House",
+            location: [44.196858, -72.502025]
+        },
+        {
+            name: "Millstone Hill Touring Center",
+            location: [44.159468, -72.451211]
+        },
+        {
+            name: "Brattleboro Museum And Art Center",
+            location: [42.850719, -72.556582]
+        },
+        {
+            name: "Arts Riot",
+            location: [44.468124, -73.214793]
+        }
+    );
 });
