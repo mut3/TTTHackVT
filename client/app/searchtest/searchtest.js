@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
                     $(".stationlist").empty();
                     for (var i = 0; i < data['fuel_stations'].length; i++) {
                         var item = $("<li>" + data.fuel_stations[i].station_name + "</li>");
-                        item.data("object", data);
+                        item.data("object", data.fuel_stations[i]);
                         item.click(function() {
                             getattractions(data.latitude, data.longitude);
                         });
