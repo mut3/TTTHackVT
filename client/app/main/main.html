@@ -1,8 +1,21 @@
-<!-- <div class="mobileSize">  Set display size to iPhone 5 screen 1136x640 --> 
+<div ng-include="'components/destinationInput/navbar.html'"></div>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyDsZlawn7fzjA64fN6RAiAmUoYhUnEKYA4&callback=initialize"> </script>
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            center: { lat: 44.477306, lng: -73.209414},
+            zoom: 11
+        };
+        window.map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+        
+        console.log('set data');
+    }
+</script>
 
-<div class="bigMapBox"> <!-- Stick the map shit in here -->
-<div ng-include="'components/destinationInput/navbar.html'"></div> <!-- Include navbar -->
 
-</div> <!-- close map box -->
-
-<!-- </div>  close overall -->
+<div class="col-md-12">    
+    <ul class="stationlist"></ul>
+    <ul class="attractionlist"></ul>
+    <div id="map-canvas"></div>
+</div>
