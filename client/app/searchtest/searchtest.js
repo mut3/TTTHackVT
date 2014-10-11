@@ -56,7 +56,29 @@ jQuery(document).ready(function($) {
                 },
                 "json");
     }
-    
+    function populateFuelStations(stations) {
+        $(".stationlist").empty();
+        console.log("fuel stations:",stations);
+        var namesIncluded = [];
+        for (var i = 0; i < stations.length; i++) {
+            if (namesIncluded.indexOf(stations[i].station_name) != -1) {
+                continue; // Skip it if we already listed an item with this name
+            }
+            namesIncluded.push(stations[i].station_name);
+            console.log(namesIncluded);
+            var item = $("<li>" + stations[i].station_name + "</li>");
+            item.data("object", stations[i]);
+            item.click(function() {
+                var object = $(this).data("object");
+                getattractions(object.latitude, object.longitude);
+            });
+
+            $(".stationlist").append(item);
+
+            //Pin dropping function below here
+            mapAddPin(stations[i].station_name, stations[i].latitude, stations[i].longitude);
+        }
+    }
     function getfuelstations(latitude, longitude) {
         console.log("fuel stations near",[latitude, longitude]);
         jQuery.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key="
@@ -65,28 +87,13 @@ jQuery(document).ready(function($) {
                 + "&" + "longitude=" + longitude
                 + "&" + "fuel_type=ELEC"
                 + "&" + "status=E"
-
                 ,
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
                     mapCenterOn(latitude,longitude);
-                    $(".stationlist").empty();
-                    console.log("fuel stations:",data);
-                    for (var i = 0; i < data['fuel_stations'].length; i++) {
-                        var item = $("<li>" + data.fuel_stations[i].station_name + "</li>");
-                        item.data("object", data.fuel_stations[i]);
-                        item.click(function() {
-                            var object = $(this).data("object");
-                            getattractions(object.latitude, object.longitude);
-                        });
-
-                        $(".stationlist").append(item);
-
-                        //Pin dropping function below here
-                        mapAddPin(data.fuel_stations[i].station_name, data.fuel_stations[i].latitude, data.fuel_stations[i].longitude);
-                    }
-                },
+                    populateFuelStations(data.fuel_stations);
+                    },
                 "json");
 
 
@@ -136,14 +143,10 @@ jQuery(document).ready(function($) {
             console.log(directionsRequest);
             console.log("Searching for a route.");
             directionsService.route(directionsRequest, function(result, status) {
-                //console.log(status);
-                //console.log(result);
                 var overview_path = result.routes[0].overview_path;
                 var linestring = "LINESTRING(";
                 for(var i = 0; i < overview_path.length; i++) {
-                    //console.log(overview_path[i].lat(), overview_path[i].lng());
                     if (i == overview_path.length - 1 || i % 2 == 0) {
-                        //linestring += overview_path[i].lat() + " " + overview_path[i].lng();
                         linestring += overview_path[i].lng() + " " + overview_path[i].lat();
                         if (i != overview_path.length - 1) {
                             linestring += ", ";
@@ -162,7 +165,9 @@ jQuery(document).ready(function($) {
                 jQuery.get(url,
                         null,
                         function(data, textStatus, jqXHR) {
-                            console.log(data);
+                            mapClear(null);
+                            //mapCenterOn(latitude,longitude);
+                            populateFuelStations(data.fuel_stations);
                         },
                         "json"
                         );
