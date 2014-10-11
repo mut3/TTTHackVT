@@ -1,5 +1,7 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
 	<div class="container" id="destinationSearchContainer">
+	
+		<form id="destinationSearchForm">
 		  
 		  <input class="input" id="destinationSearch" placeholder="Destination"/>
 		  <ul class="popdownMenu" id="destinationSubmenu">
@@ -7,6 +9,8 @@
 		  	<li id="routeButton" class="submenuOption">Route</li>
 		  	<div class="backgroundClear"></div>
 		  </ul>
+		  
+		</form>
 		  
 		  <script>
 		      $( "#destinationSearchContainer").focusin(function() {
