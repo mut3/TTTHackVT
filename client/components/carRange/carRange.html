@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
 <form>
 	<fieldset>
 		<legend>Car Range</legend>
@@ -15,13 +21,18 @@
 
 	<fieldset>
 		<legend>Button</legend> <!-- Edit this to what you want -->
-		<input type="submit" name="btnCalc" value="Calculate your current range" tabindex="300" class="button">
+		<button id="submitButton">Press me</button>
 	</fieldset>
 </form>
 
 <br>
 
-<div id="outputBox"></div> <!-- OUTPUT DIV -->
+<div id="outputBox" style="height:300px;width:300px; border:1px solid #000;"></div> <!-- OUTPUT DIV -->
 
-
-
+<script>
+$("#submitButton").click(function() {
+	$("#outputBox").html("Hello, World");
+});
+</script>
+</body>
+</html>
