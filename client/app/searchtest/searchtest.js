@@ -56,6 +56,11 @@ jQuery(document).ready(function($) {
                     }
                     console.log("Request returned.");
                     console.log("Attractions:",data);
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                            var userLatitude = position.coords.latitude;
+                            var userLongitude = position.coords.longitude;
+                            mapAddPin('You are here', userLatitude, userLongitude);
+                        });
                     for(var i = 0; i < data.length; i++) {
                         if (only == undefined) {
                             var item = $('<li>' + data[i].name + '</li>');
