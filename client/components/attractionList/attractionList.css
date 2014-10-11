@@ -11,20 +11,20 @@
 	list-style-type: none;
 }
 
-.attractionList::before {
+.attractionlist::before {
 	content: "Attractions Nearby";
 	font-size: 2em;
 	text-decoration: underline;
 }
 
-.attractionList li {
+.attractionlist li {
 	font-size: 1.3em;
 }
 
-.attractionList li.event {
+.attractionlist li.event {
 	color: #9c39c7;
 }
 
-.attractionList li.attraction {
+.attractionlist li.attraction {
 	color: #c7a73a;
 }
