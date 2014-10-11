@@ -54,6 +54,24 @@ exports.destroy = function(req, res) {
   });
 };
 
+exports.near = function(req, res) {
+    var miles = 1;
+    Attraction.find({
+        'location':
+        {
+            //$near: [req.params.latitude, req.params.longitude],
+            //$maxDistance: 1
+            $geoWithin: {
+                // 3959 = radius of earth in miles
+                $centerSphere: [ [ req.params.latitude, req.params.longitude ], miles / 3959 ]
+            }
+        }},
+        function(err, attractions) {
+            return res.json(200, attractions);
+        }
+    );
+}
+
 function handleError(res, err) {
   return res.send(500, err);
 }
