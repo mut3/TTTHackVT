@@ -3,7 +3,7 @@
 }
 
 #banner {
-    border-bottom: none;
+    border-bottom: none;tml
     margin-top: -20px;
 }
 
@@ -18,12 +18,32 @@ body {
     margin:auto;
     
 }
+<<<<<<< HEAD
 
 div .bigMapBox{
     display:block;
     margin:auto;
+=======
+/*
+div .mobileSize{
+    background-color: #92bd3f;
+    border-style:dotted;
+    margin:auto;
+    width:640px;
+    height:1136px;
+}
+*/
+
+div .bigMapBox{
+    border-style:solid;
+   
+    margin:auto;
+    /*
+    height:1136px;
+>>>>>>> FETCH_HEAD
     width:100%;
-    
+    */
+
     /*height: calc(1136px - 150px);*/
 }
 
