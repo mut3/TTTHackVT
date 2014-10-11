@@ -5,7 +5,7 @@ footer {
 	display: none;
 	text-align: center;
 	height: 4em;
-	position: absolute;
-	bottom: 0em;
+	position: static;
+	bottom: 0;
 	width: 100%;
 }
