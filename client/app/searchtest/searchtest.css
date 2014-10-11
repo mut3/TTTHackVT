@@ -3,7 +3,7 @@
     height:97vh;
     width: calc(99vw - 2px);
     margin-left: calc(-1em - 1px);
-    margin-top: calc(-2em - 2px);
+    margin-top: calc(-1.5em);
     position: absolute;
     top: 0;
 }
