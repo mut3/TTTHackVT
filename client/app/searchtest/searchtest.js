@@ -30,6 +30,11 @@ jQuery(document).ready(function($) {
         markers=[];
     }
 
+    function mapCenterOn(latitude, longitude) {
+        window.map.setCenter(new google.maps.LatLng(latitude, longitude));
+        window.map.setZoom(11);
+    }
+
 
     function getattractions(latitude, longitude) {
         //TODO: change the hardcoded 1 to a miles value from the ui
@@ -37,6 +42,7 @@ jQuery(document).ready(function($) {
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
+                    mapCenterOn(latitude,longitude);
                     console.log("Request returned.");
                     console.log("Attractions:",data);
                     $(".attractionlist").empty();
@@ -64,6 +70,7 @@ jQuery(document).ready(function($) {
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
+                    mapCenterOn(latitude,longitude);
                     $(".stationlist").empty();
                     console.log("fuel stations:",data);
                     for (var i = 0; i < data['fuel_stations'].length; i++) {
