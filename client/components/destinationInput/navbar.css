@@ -80,3 +80,7 @@ ul.popdownMenu li:nth-child(2) {
 	border-radius: 50px;
 	
 }
+
+#locationIcon img {
+	cursor: pointer;
+}
