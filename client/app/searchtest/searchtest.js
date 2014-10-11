@@ -44,22 +44,39 @@ jQuery(document).ready(function($) {
     }
 
 
-    function getattractions(latitude, longitude) {
+    function getattractions(latitude, longitude, only) {
         //TODO: change the hardcoded 1 to a miles value from the ui
         jQuery.get("/api/attractions/near/" + latitude + "/" + longitude + "/1",
                 null,
                 function(data, textStatus, jqXHR) {
                     mapClear(null);
-                    mapCenterOn(latitude,longitude);
+                    if (only == undefined) {
+                        mapCenterOn(latitude,longitude);
+                        $(".attractionlist").empty();
+                    }
                     console.log("Request returned.");
                     console.log("Attractions:",data);
-                    $(".attractionlist").empty();
                     for(var i = 0; i < data.length; i++) {
-                        var item = $('<li>' + data[i].name + '</li>');
-                        $(".attractionlist").append(item);
+                        if (only == undefined) {
+                            var item = $('<li>' + data[i].name + '</li>');
+                            console.log(data[i]);
+                            item.data("object", data[i]);
+                            item.click(function() {
+                                var object = $(this).data("object");
+                                getattractions(object.location[0], object.location[1], object.name);
+                            });
+                            $(".attractionlist").append(item);
+                        }
 
                         //Pin dropping function below here
-                        mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                        if (only != undefined) {
+                           if (data[i].name == only) {
+                            mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                           }
+                        }
+                        else {
+                            mapAddPin(data[i].name, data[i].location[0], data[i].location[1]);
+                        }
                     }
                 },
                 "json");
