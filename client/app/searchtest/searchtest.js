@@ -16,11 +16,16 @@ jQuery(document).ready(function($) {
 
     function mapAddPin(name, latitude, longitude) {
         console.log([name,latitude,longitude,map]);
-        markers.push(new google.maps.Marker({
+        var mark = new google.maps.Marker({
             position: { lat: latitude, lng: longitude},
             map: window.map,
             title: name
-        }));
+        });
+        google.maps.event.addListener(mark, "click", function() {
+            //console.log(mark.getPosition().lat(), mark.getPosition().lng());
+            getattractions(mark.getPosition().lat(), mark.getPosition().lng());
+        });
+        markers.push(mark);
     }
 
     function mapClear(map) {
