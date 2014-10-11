@@ -14,12 +14,17 @@
 }
 
 body {
-	/*background: url('http://cdn.theatlantic.com/static/mt/assets/science/google_maps_hello_world.jpg');*/
-	background-size: contain;
+	background-size: contain;    
+    margin:auto;
+    
+}
+
+div .mobileSize{
+    background-color: #92bd3f;
+    border-style:dotted; /* mark size of iPhone */
+    margin:auto;
     width:640px;
     height:1136px;
-    margin:auto;
-    border-style:dotted;
 }
 
 div .bigMapBox{
@@ -27,5 +32,5 @@ div .bigMapBox{
     display:block;
     margin:auto;
     width:100%;
-    min-height:1000px;
+    height: 1136px;
 }
