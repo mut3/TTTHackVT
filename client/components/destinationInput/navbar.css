@@ -34,6 +34,7 @@
 	font-size: 1.2em;
 	border: 1px solid #000;
 	border-radius: 0px 0px 5px 5px;
+	display: none;
 }
 
 ul.popdownMenu li {
