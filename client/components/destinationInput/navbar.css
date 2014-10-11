@@ -28,7 +28,6 @@
 	background: rgba(255,255,255,0);
 	border-bottom: none;
 }
-
 .popdownMenu {
 	background-color: #92bd3f;
 	width: 15em;
@@ -37,6 +36,11 @@
 	border-radius: 0px 0px 5px 5px;
 	display: none;
 	position: absolute;
+}
+
+#destinationSearchContainer {
+	max-width: 50%;
+	float: left;
 }
 
 ul.popdownMenu li {
@@ -58,4 +62,17 @@ ul.popdownMenu li:nth-child(2) {
 
 .backgroundClear {
 	clear:both;
+}
+
+#locationIcon {
+	float: right;
+	padding: 1em;
+}
+
+#locationIcon img {
+	height: 30px;
+	width: 30px;
+	border: 1px solid #92bd3f;
+	border-radius: 50px;
+	
 }
