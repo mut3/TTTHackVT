@@ -10,12 +10,12 @@
 		  
 		  <script>
 		      $( "#destinationSearchContainer").focusin(function() {
-				  $( ".popdownMenu").css('display','block');
+				  $(".popdownMenu").slideDown("fast");
 			  });
 		
 			  $( "#destinationSearchContainer").focusout(function() {
 				  if ($("#destinationSearch").val() == "") {
-					  $( ".popdownMenu").css('display','none');
+					  $(".popdownMenu").slideUp("fast");
 				  }
 			  });
 		  </script>
