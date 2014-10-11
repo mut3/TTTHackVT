@@ -14,15 +14,18 @@
 }
 
 body {
-	background: url('http://cdn.theatlantic.com/static/mt/assets/science/google_maps_hello_world.jpg');
+	/*background: url('http://cdn.theatlantic.com/static/mt/assets/science/google_maps_hello_world.jpg');*/
 	background-size: contain;
+    width:640px;
+    height:1136px;
+    margin:auto;
+    border-style:dotted;
 }
 
 div .bigMapBox{
     border-style:solid;
     display:block;
     margin:auto;
-    width:40%;
-    min-height:800px;
-
+    width:100%;
+    min-height:1000px;
 }
