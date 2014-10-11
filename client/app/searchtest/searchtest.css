@@ -1,5 +1,6 @@
 /*html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}*/
-#map-canvas {
-    height: 400px;
-    width: 400px;
+#map-canvas { 
+    height:100vh;
+    width:100vw;
+    margin:auto;
 }
