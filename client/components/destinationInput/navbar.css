@@ -24,16 +24,14 @@
 	border: 1px solid #61bc36;
 }
 
-.navbar {
-	background: rgba(56,56,56,0.23);
-}
-
 .popdownMenu {
 	background-color: #ee674f;
 	width: 15em;
 	font-size: 1.2em;
 	border: 1px solid #000;
 	border-radius: 0px 0px 5px 5px;
+	display: none;
+	position: absolute;
 }
 
 ul.popdownMenu li {
