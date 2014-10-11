@@ -13,7 +13,7 @@ function calculateSomeStuff()
 	else 
 	{
         var milesLeft = milesPerCharge / percentLeft;
-        var costOfPreviousTrip = ((1-percentLeft)*15*3.44);
+        var costOfPreviousTrip = ((100-percentLeft)*15*3.44);
     }
         if (milesLeft === undefined || costOfPreviousTrip === undefined) 
 		{
