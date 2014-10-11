@@ -76,6 +76,6 @@ jQuery(document).ready(function($) {
     });
 
     $(document).on("submit", "#destinationSearchForm", function() {
-        $("#locationIcon").click();
+        $("#nearestButton").click();
     });
 });
