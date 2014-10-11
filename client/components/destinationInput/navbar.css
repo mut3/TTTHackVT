@@ -25,8 +25,9 @@
 }
 
 .navbar {
-	background: rgba(255,255,255,0);
+	background: rgba(0,0,0,0.56);
 	border-bottom: none;
+	height: 3em;
 }
 .popdownMenu {
 	background-color: #92bd3f;

@@ -14,7 +14,8 @@
 }
 
 body {
-	background: #f1f1ec;
+	background: url('http://cdn.theatlantic.com/static/mt/assets/science/google_maps_hello_world.jpg');
+	background-size: contain;
 }
 
 div .bigMapBox{
