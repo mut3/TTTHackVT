@@ -1,25 +1,28 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
-  <div class="container" id="destinationSearchContainer">
-      
-      <input class="input" id="destinationSearch" placeholder="Destination"/>
-      <ul class="popdownMenu" id="destinationSubmenu">
-      	<li id="nearest">Nearest</li>
-      	<li id="nearest">Route</li>
-      	<div class="backgroundClear"></div>
-      </ul>
-      
-      <script>
-	      $( "#destinationSearchContainer").focusin(function() {
-			  $( ".popdownMenu").css('display','block');
-		  });
-
-		  $( "#destinationSearchContainer").focusout(function() {
-			  if ($("#destinationSearch").val() == "") {
-				  $( ".popdownMenu").css('display','none');
-			  }
-		  });
-      </script>
-
-    </div>
-  </div>
+	<div class="container" id="destinationSearchContainer">
+		  
+		  <input class="input" id="destinationSearch" placeholder="Destination"/>
+		  <ul class="popdownMenu" id="destinationSubmenu">
+		  	<li id="nearest">Nearest</li>
+		  	<li id="nearest">Route</li>
+		  	<div class="backgroundClear"></div>
+		  </ul>
+		  
+		  <script>
+		      $( "#destinationSearchContainer").focusin(function() {
+				  $( ".popdownMenu").css('display','block');
+			  });
+		
+			  $( "#destinationSearchContainer").focusout(function() {
+				  if ($("#destinationSearch").val() == "") {
+					  $( ".popdownMenu").css('display','none');
+				  }
+			  });
+		  </script>
+	
+	</div>
+	
+	<div id="locationIcon">
+		<img src="../../assets/images/facebook-512.png" alt="Current Location">
+	</div>
 </div>
