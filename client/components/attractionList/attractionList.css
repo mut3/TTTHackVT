@@ -9,6 +9,10 @@
 	padding: 1em 0em;
 }
 
+.stationlist:empty {
+	display:none;
+}
+
 .attractionlist {
 	background-color: rgba(69,69,69,1);
 	position: fixed;
