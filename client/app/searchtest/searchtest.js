@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
 
     }
     var nrelapikey = "5PpIkzUQz0ihMPDb9LcNbRAqxoscqB2qWlXr3eM1";
-    $(document).on("click", "#nearestbutton", function() {
+    $(document).on("click", "#nearestButton", function() {
         //getfuelstations(parseFloat($("#latitude").val()), parseFloat($("#longitude").val()));
         jQuery.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + $("#destinationSearch").val(), null,
                 function(data, textStatus, jsXHR) {
