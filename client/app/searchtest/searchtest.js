@@ -74,4 +74,8 @@ jQuery(document).ready(function($) {
             getfuelstations(position.coords.latitude, position.coords.longitude);
         });
     });
+
+    $(document).on("submit", "#destinationSearchForm", function() {
+        $("#locationIcon").click();
+    });
 });
